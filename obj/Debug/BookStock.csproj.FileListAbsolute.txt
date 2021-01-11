@@ -1,0 +1,11 @@
+C:\Users\hp\source\repos\BookStock\bin\Debug\BookStock.exe.config
+C:\Users\hp\source\repos\BookStock\bin\Debug\BookStock.exe
+C:\Users\hp\source\repos\BookStock\bin\Debug\BookStock.pdb
+C:\Users\hp\source\repos\BookStock\obj\Debug\BookStock.csprojAssemblyReference.cache
+C:\Users\hp\source\repos\BookStock\obj\Debug\BookStock.RegisterControl.resources
+C:\Users\hp\source\repos\BookStock\obj\Debug\BookStock.Properties.Resources.resources
+C:\Users\hp\source\repos\BookStock\obj\Debug\BookStock.csproj.GenerateResource.cache
+C:\Users\hp\source\repos\BookStock\obj\Debug\BookStock.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\BookStock\obj\Debug\BookStock.exe
+C:\Users\hp\source\repos\BookStock\obj\Debug\BookStock.pdb
+C:\Users\hp\source\repos\BookStock\obj\Debug\BookStock.LoginControl.resources
