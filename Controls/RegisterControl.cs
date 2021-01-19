@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BookStock.Models;
+using BookStock.DAL;
 
 namespace BookStock
 {
@@ -16,43 +18,40 @@ namespace BookStock
         {
             InitializeComponent();
         }
+        private Form _loginControl;
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        public RegisterControl(Form form) : this()
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
+            _loginControl = form;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            Database database = new Database();
             if (!String.IsNullOrEmpty(this.txbRegisterUsername.Text)
                     && !String.IsNullOrEmpty(this.txbRegisterEmail.Text)
                     && !String.IsNullOrEmpty(this.txbRegisterPassword.Text))
             {
-                User user = new User()
+                bool IsExists=false;
+                foreach(User item in DatabaseSecond.Users.GetAll())
                 {
-                    Username = this.txbRegisterUsername.Text,
-                    Email = this.txbRegisterEmail.Text,
-                    Password = this.txbRegisterPassword.Text
-                };
-
-                database.AddUser(user);
-                MessageBox.Show("Successfully Registered!");
+                    if (this.txbRegisterEmail.Text == item.Email)
+                    {
+                        MessageBox.Show("The email is already used!");
+                        IsExists = true;
+                        break;
+                    }
+                }
+                if (!IsExists)
+                {
+                    User user = new User()
+                    {
+                        Name = this.txbRegisterUsername.Text,
+                        Email = this.txbRegisterEmail.Text,
+                        Password = this.txbRegisterPassword.Text
+                    };
+                    DatabaseSecond.Users.Add(user);
+                    MessageBox.Show("Successfully Registered!");
+                }
                 this.Close();
             }
             else
@@ -62,20 +61,12 @@ namespace BookStock
             
         }
 
-        private void RegisterControl_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void llblRegisterLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LoginControl loginControl = new LoginControl();
             loginControl.ShowDialog();
+            this.Close();
         }
 
-        private void txbRegisterEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

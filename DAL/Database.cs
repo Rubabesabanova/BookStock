@@ -1,31 +1,91 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BookStock.Models;
 
 namespace BookStock
 {
-    class Database
+    class Database : IDisposable
     {
-        private List<User> _Users;
+        private SqlConnection _SqlConnection;
 
-        public Database()
+        public Database(string connectionString)
         {
-            if (_Users == null)
-                _Users = new List<User>();
+            string connectionStringConf = ConfigurationManager.ConnectionStrings[connectionString].ConnectionString;
+            _SqlConnection = new SqlConnection(connectionStringConf);
+
         }
-        public void AddUser(User user) 
+        public List<Product> GetAllProducts()
         {
-            _Users.Add(user);
+            List<Product> products = new List<Product>();
+            try
+            {
+                _SqlConnection.Open();
+                string query = "Select Id, Name, Price FROM Products";
+                using (SqlCommand command = new SqlCommand(query, _SqlConnection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Product product = new Product { 
+                                Id = Convert.ToInt32(reader["Id"].ToString()),
+                                Name = reader["Name"].ToString(),
+                                Price = Convert.ToDouble(reader["Price"].ToString())
+                            };
+                            products.Add(product);
+                        }
+                    }
+                }
+                _SqlConnection.Close();
+            }
+            catch (SqlException exp)
+            {
+                throw exp;
+            }
+            return products;
         }
-        public void RemoveUser(User user)
+        public void CreateProduct(Product product)
         {
-            _Users.Remove(user);
+            try
+            {
+                _SqlConnection.Open();
+                string query = $"INSERT INTO Products (Name, Price) VALUES ('{product.Name}', {product.Price});";
+                using (SqlCommand command = new SqlCommand(query, _SqlConnection))
+                {
+                    int affectedRow = command.ExecuteNonQuery();
+                }
+                _SqlConnection.Close();
+            }
+            catch (SqlException exception)
+            {
+                throw exception;
+            }
         }
-        public List<User> GetAllUsers()
+        public void UpdateProduct(Product product)
         {
-            return _Users;
+            try
+            {
+                _SqlConnection.Open();
+                string query = $"INSERT INTO Products (Name, Price) VALUES ('{product.Name}', {product.Price});";
+                using (SqlCommand command = new SqlCommand(query, _SqlConnection))
+                {
+                    int affectedRow = command.ExecuteNonQuery();
+                }
+                _SqlConnection.Close();
+            }
+            catch (SqlException exception)
+            {
+                throw exception;
+            }
+        }
+        public void Dispose()
+        {
+            _SqlConnection.Dispose();
         }
     }
 }

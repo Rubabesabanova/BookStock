@@ -58,7 +58,6 @@ namespace BookStock
             this.gbxRegister.TabIndex = 0;
             this.gbxRegister.TabStop = false;
             this.gbxRegister.Text = "Register";
-            this.gbxRegister.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // llblRegisterLogin
             // 
@@ -108,7 +107,6 @@ namespace BookStock
             this.txbRegisterUsername.Name = "txbRegisterUsername";
             this.txbRegisterUsername.Size = new System.Drawing.Size(229, 29);
             this.txbRegisterUsername.TabIndex = 5;
-            this.txbRegisterUsername.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // lblRegisterUsername
             // 
@@ -119,7 +117,6 @@ namespace BookStock
             this.lblRegisterUsername.Size = new System.Drawing.Size(83, 20);
             this.lblRegisterUsername.TabIndex = 4;
             this.lblRegisterUsername.Text = "Username\r\n";
-            this.lblRegisterUsername.Click += new System.EventHandler(this.label2_Click);
             // 
             // txbRegisterEmail
             // 
@@ -127,8 +124,6 @@ namespace BookStock
             this.txbRegisterEmail.Name = "txbRegisterEmail";
             this.txbRegisterEmail.Size = new System.Drawing.Size(229, 29);
             this.txbRegisterEmail.TabIndex = 1;
-            this.txbRegisterEmail.TextChanged += new System.EventHandler(this.txbRegisterEmail_TextChanged);
-            // 
             // lblRegisterEmail
             // 
             this.lblRegisterEmail.AutoSize = true;
@@ -138,7 +133,6 @@ namespace BookStock
             this.lblRegisterEmail.Size = new System.Drawing.Size(48, 20);
             this.lblRegisterEmail.TabIndex = 0;
             this.lblRegisterEmail.Text = "Email\r\n";
-            this.lblRegisterEmail.Click += new System.EventHandler(this.label1_Click);
             // 
             // RegisterControl
             // 
@@ -148,7 +142,6 @@ namespace BookStock
             this.Controls.Add(this.gbxRegister);
             this.Name = "RegisterControl";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.RegisterControl_Load);
             this.gbxRegister.ResumeLayout(false);
             this.gbxRegister.PerformLayout();
             this.ResumeLayout(false);

@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,11 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\BookControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\BookControl.Designer.cs">
+      <DependentUpon>BookControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\LoginControl.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Controls\LoginControl.Designer.cs">
       <DependentUpon>LoginControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProductControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ProductControl.Designer.cs">
+      <DependentUpon>ProductControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\RegisterControl.cs">
       <SubType>Form</SubType>
@@ -59,11 +72,22 @@
       <DependentUpon>RegisterControl.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL\Database.cs" />
+    <Compile Include="DAL\DatabaseSecond.cs" />
+    <Compile Include="DAL\EntityModel.cs" />
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\BookControl.resx">
+      <DependentUpon>BookControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\LoginControl.resx">
       <DependentUpon>LoginControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ProductControl.resx">
+      <DependentUpon>ProductControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RegisterControl.resx">
       <DependentUpon>RegisterControl.cs</DependentUpon>
@@ -90,6 +114,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

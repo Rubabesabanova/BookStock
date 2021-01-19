@@ -9,3 +9,16 @@ C:\Users\hp\source\repos\BookStock\obj\Debug\BookStock.csproj.CoreCompileInputs.
 C:\Users\hp\source\repos\BookStock\obj\Debug\BookStock.exe
 C:\Users\hp\source\repos\BookStock\obj\Debug\BookStock.pdb
 C:\Users\hp\source\repos\BookStock\obj\Debug\BookStock.LoginControl.resources
+C:\Users\hp\Desktop\Projects\BookStock\bin\Debug\BookStock.exe.config
+C:\Users\hp\Desktop\Projects\BookStock\bin\Debug\BookStock.exe
+C:\Users\hp\Desktop\Projects\BookStock\bin\Debug\BookStock.pdb
+C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.csprojAssemblyReference.cache
+C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.Controls.BookControl.resources
+C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.LoginControl.resources
+C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.Controls.ProductControl.resources
+C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.RegisterControl.resources
+C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.Properties.Resources.resources
+C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.csproj.GenerateResource.cache
+C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.exe
+C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.pdb

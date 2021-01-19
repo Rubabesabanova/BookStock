@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BookStock.Models;
+using BookStock.Controls;
+using BookStock.DAL;
 namespace BookStock
 {
     public partial class LoginControl : Form
@@ -16,36 +18,33 @@ namespace BookStock
         {
             InitializeComponent();
         }
-
         private void llblLoginRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            RegisterControl registerControl = new RegisterControl();
+            RegisterControl registerControl = new RegisterControl(this);
             registerControl.ShowDialog();
         }
 
         private void btnLoginRegister_Click(object sender, EventArgs e)
         {
-            Database database = new Database();
             if (!String.IsNullOrEmpty(this.txbLoginEmail.Text)
                     && !String.IsNullOrEmpty(this.txbLoginPassword.Text))
             {
-                bool isExist = false;
+                bool IsExists = false;
 
-                foreach (var user in database.GetAllUsers())
+                foreach (var user in DatabaseSecond.Users.GetAll())
                 {
                     if (user.Email == this.txbLoginEmail.Text && user.Password == this.txbLoginPassword.Text)
                     {
-                        isExist = true;
+                        MessageBox.Show("Successfully Logined!");
+                        BookControl bookControl = new BookControl(this);
+                        bookControl.ShowDialog();
+                        IsExists = true;
                         break;
                     }
                 }
-                if (isExist)
+                if (!IsExists)
                 {
-                    MessageBox.Show("Successfully Logined!");
-                }
-                else
-                {
-                    MessageBox.Show("Username or password is wrong! Please try again!");
+                    MessageBox.Show("Email or password is wrong! Please try again!");
                 }
             }
             else
