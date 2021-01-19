@@ -71,7 +71,24 @@ namespace BookStock
             try
             {
                 _SqlConnection.Open();
-                string query = $"INSERT INTO Products (Name, Price) VALUES ('{product.Name}', {product.Price});";
+                string query = $"UPDATE Products SET NAME ='{product.Name}', PRICE = {product.Price} WHERE ID={product.Id}";
+                using (SqlCommand command = new SqlCommand(query, _SqlConnection))
+                {
+                    int affectedRow = command.ExecuteNonQuery();
+                }
+                _SqlConnection.Close();
+            }
+            catch (SqlException exception)
+            {
+                throw exception;
+            }
+        }
+        public void DeleteProduct(int id)
+        {
+            try
+            {
+                _SqlConnection.Open();
+                string query = $"DELETE FROM Products WHERE Id={id}";
                 using (SqlCommand command = new SqlCommand(query, _SqlConnection))
                 {
                     int affectedRow = command.ExecuteNonQuery();

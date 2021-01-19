@@ -132,6 +132,7 @@ namespace BookStock.Controls
             this.btnProductDelete.TabIndex = 9;
             this.btnProductDelete.Text = "Delete";
             this.btnProductDelete.UseVisualStyleBackColor = true;
+            this.btnProductDelete.Click += new System.EventHandler(this.btnProductDelete_Click);
             // 
             // rtbxProductData
             // 
