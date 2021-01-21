@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace BookStock.Models
 {
-    public class Product: Entity
+    public class ProductGrid : Entity
     {
-        public double Price { get; set; }
-        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
     }
 }

@@ -22,3 +22,4 @@ C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.csproj.GenerateResour
 C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.csproj.CoreCompileInputs.cache
 C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.exe
 C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.pdb
+C:\Users\hp\Desktop\Projects\BookStock\obj\Debug\BookStock.Controls.ProductGridControl.resources

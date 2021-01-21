@@ -65,6 +65,12 @@
     <Compile Include="Controls\ProductControl.Designer.cs">
       <DependentUpon>ProductControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ProductGridControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ProductGridControl.Designer.cs">
+      <DependentUpon>ProductGridControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RegisterControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,7 @@
     <Compile Include="DAL\DatabaseSecond.cs" />
     <Compile Include="DAL\EntityModel.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\ProductGrid.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\User.cs" />
@@ -88,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ProductControl.resx">
       <DependentUpon>ProductControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ProductGridControl.resx">
+      <DependentUpon>ProductGridControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RegisterControl.resx">
       <DependentUpon>RegisterControl.cs</DependentUpon>

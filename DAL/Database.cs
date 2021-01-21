@@ -49,6 +49,40 @@ namespace BookStock
             }
             return products;
         }
+        public List<ProductGrid> GetAllGrid()
+        {
+            List<ProductGrid> productgrids = new List<ProductGrid>();
+            try
+            {
+                if (_SqlConnection.State == System.Data.ConnectionState.Closed)
+                    _SqlConnection.Open();
+                string query = "Select product.Id AS ProductId, product.Name AS ProductName, Category.Name as CategoryName" +
+                    " FROM Products as product " + "INNER JOIN Category ON product.CategoryId =  Category.Id";
+                using (SqlCommand command = new SqlCommand(query, _SqlConnection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ProductGrid productgrid = new ProductGrid
+                            {
+                                Id = Convert.ToInt32(reader["ProductId"].ToString()),
+                                Name = reader["ProductName"].ToString(),
+                                CategoryName = reader["CategoryName"].ToString()
+                            };
+                            productgrids.Add(productgrid);
+                        }
+                    }
+                }
+
+            }
+            catch (SqlException exp)
+            {
+                throw exp;
+            }
+            return productgrids;
+        }
+
         public void CreateProduct(Product product)
         {
             try
@@ -70,13 +104,11 @@ namespace BookStock
         {
             try
             {
-                _SqlConnection.Open();
                 string query = $"UPDATE Products SET NAME ='{product.Name}', PRICE = {product.Price} WHERE ID={product.Id}";
                 using (SqlCommand command = new SqlCommand(query, _SqlConnection))
                 {
                     int affectedRow = command.ExecuteNonQuery();
                 }
-                _SqlConnection.Close();
             }
             catch (SqlException exception)
             {

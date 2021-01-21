@@ -17,7 +17,7 @@ namespace BookStock
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ProductControl());
+            Application.Run(new ProductGridControl());
             
         }
     }
